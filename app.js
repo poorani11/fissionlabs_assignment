@@ -139,10 +139,10 @@ chartsDisplayApp.controller('displayController', ['$scope','displayService', fun
       dataPoints:getDataPointsFromCSV(lines[3])
     }]
   });
-  chart.options.data[0].dataPoints.sort(compareDataPointYAscend);
-  chart.options.data[1].dataPoints.sort(compareDataPointYAscend);
-  chart.options.data[2].dataPoints.sort(compareDataPointYAscend);
-  chart.options.data[3].dataPoints.sort(compareDataPointYAscend);
+  chart.options.data[0].dataPoints.sort(compareDataPoints);
+  chart.options.data[1].dataPoints.sort(compareDataPoints);
+  chart.options.data[2].dataPoints.sort(compareDataPoints);
+  chart.options.data[3].dataPoints.sort(compareDataPoints);
 
   chart.render();
 
@@ -155,7 +155,7 @@ chartsDisplayApp.controller('displayController', ['$scope','displayService', fun
     chart.render();
   }
 
-  function compareDataPointYAscend(dataPoint1, dataPoint2){
+  function compareDataPoints(dataPoint1, dataPoint2){
     if (dataPoint1.x < dataPoint2.x){return -1}
     if ( dataPoint1.x > dataPoint2.x){return 1}
     return 0
